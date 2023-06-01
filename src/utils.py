@@ -17,10 +17,17 @@ def save_object (filepath,obj):
         pickle.dump(obj, file_obj)
 
 
+def load_object(filepath):
+    try:
+        with open(filepath, 'rb') as file_obj:
+            return pickle.load(file_obj)
+
+    except Exception as e:
+        raise CustomException(e,sys)
+
 def evaluate_model(x_train, y_train, x_test, y_test,models,params):
 
     try:
-
 
         report = {}
 
